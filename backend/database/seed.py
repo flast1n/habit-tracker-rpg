@@ -6,7 +6,7 @@ def seed_fake_data():
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Перевірка чи вже є дані, якщо вже є такі дані то пропускає
+    # Перевіряємо чи вже є дані — не дублюємо
     existing = cursor.execute("SELECT COUNT(*) FROM users").fetchone()[0]
     if existing > 0:
         print("Тестові дані вже існують, пропускаємо.")
